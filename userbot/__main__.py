@@ -7,7 +7,7 @@ from telethon import TelegramClient
 from var import Var
 from userbot.Config import Config
 from userbot.utils import load_module
-from userbot import LOAD_PLUG, LOGS, hunterXversion
+from userbot import LOAD_PLUG, LOGS, hunterxversion
 from pathlib import Path
 import asyncio
 import telethon.utils
@@ -54,14 +54,14 @@ for name in files:
 
 import userbot._core
 
-print(f"""HUNTERX IS ON!!! HUNTERX VERSION :- {hunterXversion} YOUR HUNTERX IS READY TO USE! FOR CHECK YOUR BOT WORKING OR NOT PLEASE TYPE (.alive/.ping) ENJOY YOUR BOT! JOIN FOR MORE FUTURE UPDATES @HunTerXsuPPorT .""")
+print(f"""HUNTERX IS ON!!! HUNTERX VERSION :- {hunterxversion} YOUR HUNTERX IS READY TO USE! FOR CHECK YOUR BOT WORKING OR NOT PLEASE TYPE (.alive/.ping) ENJOY YOUR BOT! JOIN FOR MORE FUTURE UPDATES @HunTerXsuPPorT .""")
 async def mafia_is_on():
     try:
         if Config.HUNTERX_LOGGER != 0:
             await bot.send_file(
                 Config.HUNTERX_LOGGER,
                 MAFIA_PIC,
-                caption=f"𝙱𝙰𝙰𝙿 𝙱𝙾𝙻𝚃𝙴 𝙷𝚄𝙽𝚃𝙴𝚁 𝚇\n\n**𝚅𝙴𝚁𝚂𝙸𝙾𝙽 ➪ {hunterXversion}**\n\n𝐓𝐲𝐩𝐞 `.ping` or `.alive` 𝐭𝐨 𝐜𝐡𝐞𝐜𝐤! \n\n𝙹𝙾𝙸𝙽 [𝙷𝚄𝙽𝚃𝙴𝚁 𝚇 𝙲𝙷𝙰𝚃](t.me/HunTerXsuPPorT) 𝚃𝙾 𝚀𝚄𝙴𝚁𝚈 & 𝙹𝙾𝙸𝙽 [ 𝙷𝚄𝙽𝚃𝙴𝚁 𝚇 𝚄𝙿𝙳𝙰𝚃𝙴𝚂](t.me/HunTerXoFFiCiAl) 𝚃𝙾 𝙺𝙽𝙾𝚆 𝚁𝙴𝙶𝚁𝙰𝙳𝙸𝙽𝙶 𝚄𝙿𝙳𝙰𝚃𝙴 𝙰𝙽𝙳 𝙽𝙴𝚆𝚂 𝙰𝙱𝙾𝚄𝚃 𝙷𝚄𝙽𝚃𝙴𝚁 𝚇",
+                caption=f"𝙱𝙰𝙰𝙿 𝙱𝙾𝙻𝚃𝙴 𝙷𝚄𝙽𝚃𝙴𝚁 𝚇\n\n**𝚅𝙴𝚁𝚂𝙸𝙾𝙽 ➪ {hunterxversion}**\n\n𝐓𝐲𝐩𝐞 `.ping` or `.alive` 𝐭𝐨 𝐜𝐡𝐞𝐜𝐤! \n\n𝙹𝙾𝙸𝙽 [𝙷𝚄𝙽𝚃𝙴𝚁 𝚇 𝙲𝙷𝙰𝚃](t.me/HunTerXsuPPorT) 𝚃𝙾 𝚀𝚄𝙴𝚁𝚈 & 𝙹𝙾𝙸𝙽 [ 𝙷𝚄𝙽𝚃𝙴𝚁 𝚇 𝚄𝙿𝙳𝙰𝚃𝙴𝚂](t.me/HunTerXoFFiCiAl) 𝚃𝙾 𝙺𝙽𝙾𝚆 𝚁𝙴𝙶𝚁𝙰𝙳𝙸𝙽𝙶 𝚄𝙿𝙳𝙰𝚃𝙴 𝙰𝙽𝙳 𝙽𝙴𝚆𝚂 𝙰𝙱𝙾𝚄𝚃 𝙷𝚄𝙽𝚃𝙴𝚁 𝚇",
             )
     except Exception as e:
         LOGS.info(str(e))
