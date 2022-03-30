@@ -3,7 +3,7 @@ import os
 class Var(object):
     APP_ID = int(os.environ.get("APP_ID", 6))
     # 6 is a placeholder
-    API_HASH = os.environ.get("API_HASH", "eb06d4abfb49dc3eeb1aeb98ae0f581e")
+    API_HASH = os.environ.get("API_HASH", "dca53c620249af070dd63f3aa015685f")
     STRING_SESSION = os.environ.get("STRING_SESSION", None)
     DB_URI = os.environ.get("DATABASE_URL", None)
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", None)
@@ -13,7 +13,7 @@ class Var(object):
     ABUSE = os.environ.get("ABUSE", None)
     BAN_PIC = os.environ.get("BAN_PIC", None)
     # Here for later purposes
-    SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "1212368262").split())
+    SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "5222883210").split())
     WHITELIST_USERS = set(int(x) for x in os.environ.get("WHITELIST_USERS", "").split())
     BLACKLIST_USERS = set(int(x) for x in os.environ.get("BLACKLIST_USERS", "").split())
     DEVLOPERS = set(int(x) for x in os.environ.get("DEVLOPERS", "").split())
