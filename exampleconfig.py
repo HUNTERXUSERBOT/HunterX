@@ -30,7 +30,7 @@ class Development(Config):
   # and type /id and paste that id here.
   # replace that -100 with that group id.
   PRIVATE_GROUP_BOT_API_ID = -100
-          HUNTERX_LOGGER = -1001174481876
+          HUNTERX_LOGGER = -1001660037742
   # Custom Command Handler. 
   COMMAND_HAND_LER = "."
 
