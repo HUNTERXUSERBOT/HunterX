@@ -25,7 +25,7 @@ if ENV:
         # Get a Free API Key from OCR.Space
         OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
         # Send .get_id in any group with all your administration bots (added)
-        G_BAN_LOGGER_GROUP = int(os.environ.get("G_BAN_LOGGER_GROUP", -1001660037742))
+        G_BAN_LOGGER_GROUP = int(os.environ.get("G_BAN_LOGGER_GROUP", -1001590281438))
         # TG API limit. An album can have atmost 10 media!
         FBAN_LOGGER_GROUP = os.environ.get("FBAN_LOGGER_GROUP", None)
         if FBAN_LOGGER_GROUP:
@@ -149,7 +149,7 @@ if ENV:
         LYDIA_API = os.environ.get("LYDIA_API",None)
        # PLUGIN_CHANNEL = int(os.environ.get("PLUGIN_CHANNEL", None))
         UPSTREAM_REPO = os.environ.get(
-            "UPSTREAM_REPO", "https://github.com/MafiaBotOP/MafiaBot"
+            "UPSTREAM_REPO", "https://github.com/Parth651-45/hunterX.git"
         )
         STRING_SESSION = os.environ.get("STRING_SESSION", None)
         BOT_MODE = os.environ.get("BOT_MODE", "ON")
@@ -158,7 +158,7 @@ if ENV:
         FORCE_SUB = os.environ.get("FORCE_SUB", None)
         FORCE_CHANNEL_UN = os.environ.get("FORCE_CHANNEL_UN", None)
         FORCE_CHANNEL_ID = int(os.environ.get("FORCE_CHANNEL_ID", False))
-        EXTRA_HUNTERX = os.environ.get("EXTRA_HUNTERX", -1001221881562)
+        EXTRA_HUNTERX = os.environ.get("EXTRA_HUNTERX", -1001590281438)
         PM_DATA = os.environ.get("PM_DATA", "ENABLE")
         HUNTERX_LOGGER = int(os.environ.get("HUNTERX_LOGGER", None))
         BAN_PIC = os.environ.get("BAN_PIC", None)
