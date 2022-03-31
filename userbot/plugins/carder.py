@@ -6,29 +6,29 @@ from telethon.tl.functions.messages import DeleteHistoryRequest
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
 
-from mafiabot.utils import admin_cmd, sudo_cmd, edit_or_reply
-from mafiabot import CmdHelp, bot as mafiabot
+from hunterx.utils import admin_cmd, sudo_cmd, edit_or_reply
+from hunterx import CmdHelp, bot as hunterx
 
 
-@mafiabot.on(admin_cmd("gencc$"))
-@mafiabot.on(sudo_cmd("gencc$", allow_sudo=True))
+@hunterx.on(admin_cmd("gencc$"))
+@hunterx.on(sudo_cmd("gencc$", allow_sudo=True))
 async def _(mafiaevent):
-    if mafiaevent.fwd_from:
+    if hunterevent.fwd_from:
         return
-    mafiacc = Faker()
-    mafianame = mafiacc.name()
-    mafiaadre = mafiacc.address()
-    mafiacard = mafiacc.credit_card_full()
+    huntercc = Faker()
+    huntername = huntercc.name()
+    hunteradre = huntercc.address()
+    huntercard = huntercc.credit_card_full()
     
-    await edit_or_reply(mafiaevent, f"__**👤 NAME :- **__\n`{mafianame}`\n\n__**🏡 ADDRESS :- **__\n`{mafiaadre}`\n\n__**💸 CARD :- **__\n`{mafiacard}`")
+    await edit_or_reply(hunterevent, f"__**👤 NAME :- **__\n`{huntername}`\n\n__**🏡 ADDRESS :- **__\n`{hunteradre}`\n\n__**💸 CARD :- **__\n`{huntercard}`")
     
 
-@mafiabot.on(admin_cmd(pattern="bin ?(.*)"))
-@mafiabot.on(sudo_cmd(pattern="bin ?(.*)", allow_sudo=True))
+@hunterx.on(admin_cmd(pattern="bin ?(.*)"))
+@huntetx.on(sudo_cmd(pattern="bin ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return 
-    mafia_input = event.pattern_match.group(1)
+    hunter_input = event.pattern_match.group(1)
     chat = "@carol5_bot"
     await event.edit("Checking...")
     async with event.client.conversation(chat) as conv:
@@ -44,12 +44,12 @@ async def _(event):
              await event.client.send_message(event.chat_id, response.message)
 
 
-@mafiabot.on(admin_cmd(pattern="vbv ?(.*)"))
-@mafiabot.on(sudo_cmd(pattern="vbv ?(.*)", allow_sudo=True))
+@hunterx.on(admin_cmd(pattern="vbv ?(.*)"))
+@hunterx.on(sudo_cmd(pattern="vbv ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return 
-    mafia_input = event.pattern_match.group(1)
+    hunter_input = event.pattern_match.group(1)
     chat = "@carol5_bot"
     await event.edit("Checking...")
     async with event.client.conversation(chat) as conv:
@@ -65,12 +65,12 @@ async def _(event):
              await event.client.send_message(event.chat_id, response.message)
     
     
-@mafiabot.on(admin_cmd(pattern="key ?(.*)"))
-@mafiabot.on(sudo_cmd(pattern="key ?(.*)", allow_sudo=True))
+@hunterx.on(admin_cmd(pattern="key ?(.*)"))
+@hunterx.on(sudo_cmd(pattern="key ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return 
-    mafia_input = event.pattern_match.group(1)
+    hunter_input = event.pattern_match.group(1)
     chat = "@carol5_bot"
     await event.edit("Checking...")
     async with event.client.conversation(chat) as conv:
@@ -86,12 +86,12 @@ async def _(event):
              await event.client.send_message(event.chat_id, response.message)
  
   
-@mafiabot.on(admin_cmd(pattern="iban ?(.*)"))
-@mafiabot.on(sudo_cmd(pattern="iban ?(.*)", allow_sudo=True))
+@hunterx.on(admin_cmd(pattern="iban ?(.*)"))
+@hunterx.on(sudo_cmd(pattern="iban ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return 
-    mafia_input = event.pattern_match.group(1)
+    hunter_input = event.pattern_match.group(1)
     chat = "@carol5_bot"
     await event.edit("Checking...")
     async with event.client.conversation(chat) as conv:
@@ -107,12 +107,12 @@ async def _(event):
              await event.client.send_message(event.chat_id, response.message)
 
     
-@mafiabot.on(admin_cmd(pattern="ccheck ?(.*)"))
-@mafiabot.on(sudo_cmd(pattern="ccheck ?(.*)", allow_sudo=True))
+@hunterx.on(admin_cmd(pattern="ccheck ?(.*)"))
+@hunterx.on(sudo_cmd(pattern="ccheck ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return 
-    mafia_input = event.pattern_match.group(1)
+    hunter_input = event.pattern_match.group(1)
     chat = "@carol5_bot"
     await event.edit("Checking...")
     async with event.client.conversation(chat) as conv:
@@ -128,12 +128,12 @@ async def _(event):
              await event.client.send_message(event.chat_id, response.message)
              
              
-@mafiabot.on(admin_cmd(pattern="ccbin ?(.*)"))
-@mafiabot.on(sudo_cmd(pattern="ccbin ?(.*)", allow_sudo=True))
+@hunterx.on(admin_cmd(pattern="ccbin ?(.*)"))
+@hunterx.on(sudo_cmd(pattern="ccbin ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return 
-    mafia_input = event.pattern_match.group(1)
+    hunter_input = event.pattern_match.group(1)
     chat = "@carol5_bot"
     await event.edit(f"Trying to generate CC from the given bin `{mafia_input}`")
     async with event.client.conversation(chat) as conv:
