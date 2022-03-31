@@ -5,7 +5,7 @@ import base64
 from asyncio import sleep
 
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
-from mafiabot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from hunterx.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot import BOTLOG, BOTLOG_CHATID
 from userbot.helpers.format import parse_pre
 from userbot.plugins.sql_helper import broadcast_sql as sql
@@ -13,11 +13,11 @@ from userbot.cmdhelp import CmdHelp
 
 @bot.on(admin_cmd(pattern="sendto(?: |$)(.*)", command="sendto"))
 @bot.on(sudo_cmd(pattern="sendto(?: |$)(.*)", command="sendto", allow_sudo=True))
-async def mafiabroadcast_send(event):
+async def hunterbroadcast_send(event):
     if event.fwd_from:
         return
-    mafiainput_str = event.pattern_match.group(1)
-    if not mafiainput_str:
+    hunterinput_str = event.pattern_match.group(1)
+    if not hunterinput_str:
         return await edit_delete(
             event, "To which category should i send this message", parse_mode=parse_pre
         )
@@ -27,7 +27,7 @@ async def mafiabroadcast_send(event):
         return await edit_delete(
             event, "what should i send to to this category ?", parse_mode=parse_pre
         )
-    keyword = mafiainput_str.lower()
+    keyword = hunterinput_str.lower()
     no_of_chats = sql.num_broadcastlist_chat(keyword)
     group_ = Get(mafia)
     if no_of_chats == 0:
@@ -57,7 +57,7 @@ async def mafiabroadcast_send(event):
             LOGS.info(str(e))
         await sleep(0.5)
     resultext = f"`The message was sent to {i} chats out of {no_of_chats} chats in category {keyword}.`"
-    await mafiaevent.edit(resultext)
+    await hunterevent.edit(resultext)
     if BOTLOG:
         await event.client.send_message(
             BOTLOG_CHATID,
@@ -68,11 +68,11 @@ async def mafiabroadcast_send(event):
 
 @bot.on(admin_cmd(pattern="fwdto(?: |$)(.*)", command="fwdto"))
 @bot.on(sudo_cmd(pattern="fwdto(?: |$)(.*)", command="fwdto", allow_sudo=True))
-async def mafiabroadcast_send(event):
+async def hunterbroadcast_send(event):
     if event.fwd_from:
         return
-    mafiainput_str = event.pattern_match.group(1)
-    if not mafiainput_str:
+    hunterinput_str = event.pattern_match.group(1)
+    if not hunterinput_str:
         return await edit_delete(
             event, "To which category should i send this message", parse_mode=parse_pre
         )
@@ -82,9 +82,9 @@ async def mafiabroadcast_send(event):
         return await edit_delete(
             event, "what should i send to to this category ?", parse_mode=parse_pre
         )
-    keyword = mafiainput_str.lower()
+    keyword = hunterinput_str.lower()
     no_of_chats = sql.num_broadcastlist_chat(keyword)
-    group_ = Get(mafia)
+    group_ = Get(hunter)
     if no_of_chats == 0:
         return await edit_delete(
             event,
@@ -92,7 +92,7 @@ async def mafiabroadcast_send(event):
             parse_mode=parse_pre,
         )
     chats = sql.get_chat_broadcastlist(keyword)
-    mafiaevent = await edit_or_reply(
+    hunterevent = await edit_or_reply(
         event,
         "sending this message to all groups in the category",
         parse_mode=parse_pre,
@@ -112,7 +112,7 @@ async def mafiabroadcast_send(event):
             LOGS.info(str(e))
         await sleep(0.5)
     resultext = f"`The message was sent to {i} chats out of {no_of_chats} chats in category {keyword}.`"
-    await mafiaevent.edit(resultext)
+    await hunterevent.edit(resultext)
     if BOTLOG:
         await event.client.send_message(
             BOTLOG_CHATID,
@@ -123,15 +123,15 @@ async def mafiabroadcast_send(event):
 
 @bot.on(admin_cmd(pattern="addto(?: |$)(.*)", command="addto"))
 @bot.on(sudo_cmd(pattern="addto(?: |$)(.*)", command="addto", allow_sudo=True))
-async def mafiabroadcast_add(event):
+async def hunterbroadcast_add(event):
     if event.fwd_from:
         return
-    mafiainput_str = event.pattern_match.group(1)
-    if not mafiainput_str:
+    hunterinput_str = event.pattern_match.group(1)
+    if not hunterinput_str:
         return await edit_delete(
             event, "In which category should i add this chat", parse_mode=parse_pre
         )
-    keyword = mafiainput_str.lower()
+    keyword = hunterinput_str.lower()
     check = sql.is_in_broadcastlist(keyword, event.chat_id)
     if check:
         return await edit_delete(
@@ -161,15 +161,15 @@ async def mafiabroadcast_add(event):
 
 @bot.on(admin_cmd(pattern="rmfrom(?: |$)(.*)", command="rmfrom"))
 @bot.on(sudo_cmd(pattern="rmfrom(?: |$)(.*)", command="rmfrom", allow_sudo=True))
-async def mafiabroadcast_remove(event):
+async def hunterbroadcast_remove(event):
     if event.fwd_from:
         return
-    mafiainput_str = event.pattern_match.group(1)
+    hunterinput_str = event.pattern_match.group(1)
     if not mafiainput_str:
         return await edit_delete(
             event, "From which category should i remove this chat", parse_mode=parse_pre
         )
-    keyword = mafiainput_str.lower()
+    keyword = hunterinput_str.lower()
     check = sql.is_in_broadcastlist(keyword, event.chat_id)
     if not check:
         return await edit_delete(
@@ -199,17 +199,17 @@ async def mafiabroadcast_remove(event):
 
 @bot.on(admin_cmd(pattern="list(?: |$)(.*)", command="list"))
 @bot.on(sudo_cmd(pattern="list(?: |$)(.*)", command="list", allow_sudo=True))
-async def mafiabroadcast_list(event):
+async def hunterbroadcast_list(event):
     if event.fwd_from:
         return
-    mafiainput_str = event.pattern_match.group(1)
-    if not mafiainput_str:
+    hunterinput_str = event.pattern_match.group(1)
+    if not hunterinput_str:
         return await edit_delete(
             event,
             "Which category Chats should i list ?\nCheck .listall",
             parse_mode=parse_pre,
         )
-    keyword = mafiainput_str.lower()
+    keyword = hunterinput_str.lower()
     no_of_chats = sql.num_broadcastlist_chat(keyword)
     if no_of_chats == 0:
         return await edit_delete(
@@ -242,7 +242,7 @@ async def mafiabroadcast_list(event):
 
 @bot.on(admin_cmd(pattern="listall$", command="listall"))
 @bot.on(sudo_cmd(pattern="listall$", command="listall", allow_sudo=True))
-async def mafiabroadcast_list(event):
+async def hunterbroadcast_list(event):
     if event.fwd_from:
         return
     if sql.num_broadcastlist_chats() == 0:
@@ -260,15 +260,15 @@ async def mafiabroadcast_list(event):
 
 @bot.on(admin_cmd(pattern="frmfrom(?: |$)(.*)", command="frmfrom"))
 @bot.on(sudo_cmd(pattern="frmfrom(?: |$)(.*)", command="frmfrom", allow_sudo=True))
-async def mafiabroadcast_remove(event):
+async def hunterbroadcast_remove(event):
     if event.fwd_from:
         return
-    mafiainput_str = event.pattern_match.group(1)
-    if not mafiainput_str:
+    hunterinput_str = event.pattern_match.group(1)
+    if not hunterinput_str:
         return await edit_delete(
             event, "From which category should i remove this chat", parse_mode=parse_pre
         )
-    args = mafiainput_str.split(" ")
+    args = ghunterinput_str.split(" ")
     if len(args) != 2:
         return await edit_delete(
             event,
@@ -320,10 +320,10 @@ async def mafiabroadcast_remove(event):
 
 @bot.on(admin_cmd(pattern="delc(?: |$)(.*)", command="delc"))
 @bot.on(sudo_cmd(pattern="delc(?: |$)(.*)", command="delc", allow_sudo=True))
-async def mafiabroadcast_delete(event):
+async def hunterbroadcast_delete(event):
     if event.fwd_from:
         return
-    mafiainput_str = event.pattern_match.group(1)
+    hunterinput_str = event.pattern_match.group(1)
     check1 = sql.num_broadcastlist_chat(mafiainput_str)
     if check1 < 1:
         return await edit_delete(
