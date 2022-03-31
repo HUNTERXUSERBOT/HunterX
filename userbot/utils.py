@@ -49,7 +49,7 @@ def load_module(shortname):
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
-        LOGS.info("MafiaBot - Successfully imported " + shortname)
+        LOGS.info("HunterX - Successfully imported " + shortname)
     else:
         import userbot.utils
 
@@ -70,15 +70,15 @@ def load_module(shortname):
         mod.edit_or_reply = edit_or_reply
         mod.delete_mafia = delete_mafia
         mod.media_type = media_type
-        # support for mafiabot originals
-        sys.modules["mafiabot.utils"] = userbot.utils
-        sys.modules["mafiabot"] = userbot
+        # support for hunterx originals
+        sys.modules["hunterx.utils"] = userbot.utils
+        sys.modules["hunterx"] = userbot
         # support for paperplaneextended
         sys.modules["userbot.events"] = userbot.utils
         spec.loader.exec_module(mod)
         # for imports
         sys.modules["userbot.plugins." + shortname] = mod
-        LOGS.info("⚡🔥MafiaBot⚡🔥 - Successfully imported " + shortname)
+        LOGS.info(" 🎗️📌HunterX📌🎗️ - Successfully imported " + shortname)
 
 
 def remove_plugin(shortname):
@@ -186,12 +186,12 @@ def sudo_cmd(pattern=None, command=None, **args):
                 SUDO_LIST.update({file_test: [cmd]})
         else:
             if len(Config.SUDO_COMMAND_HAND_LER) == 2:
-                mafiareg = "^" + Config.SUDO_COMMAND_HAND_LER
+                hunterxreg = "^" + Config.SUDO_COMMAND_HAND_LER
                 reg = Config.SUDO_COMMAND_HAND_LER[1]
             elif len(Config.SUDO_COMMAND_HAND_LER) == 1:
                 mafiareg = "^\\" + Config.SUDO_COMMAND_HAND_LER
                 reg = Config.COMMAND_HAND_LER
-            args["pattern"] = re.compile(mafiareg + pattern)
+            args["pattern"] = re.compile(hunterxreg + pattern)
             if command is not None:
                 cmd = reg + command
             else:
@@ -640,9 +640,9 @@ async def unsavegif(event, h1m4n5hu0p):
         await event.client(
             functions.messages.SaveGifRequest(
                 id=types.InputDocument(
-                    id=h1m4n5hu0p.media.document.id,
-                    access_hash=h1m4n5hu0p.media.document.access_hash,
-                    file_reference=h1m4n5hu0p.media.document.file_reference,
+                    id=hunterxuserbot.media.document.id,
+                    access_hash=hunterxuserbot.media.document.access_hash,
+                    file_reference=hunterxuserbot.media.document.file_reference,
                 ),
                 unsave=True,
             )
