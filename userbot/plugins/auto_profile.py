@@ -6,14 +6,14 @@ from telethon.tl import functions
 from telethon.tl.functions.channels import GetAdminedPublicChannelsRequest
 
 from userbot import CMD_HELP
-from mafiabot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from hunterx.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
 from . import *
 
-DEFAULTUSERBIO = str(BIO_MSG) if BIO_MSG else "ʟᴇɢᴇɴᴅᴀʀʏ ᴀғ ᴍᴀғɪᴀʙᴏᴛ"
+DEFAULTUSERBIO = str(BIO_MSG) if BIO_MSG else "𝙃𝙐𝙉𝙏𝙀𝙍 𝙓 𝙂𝙊𝘿"
 DEL_TIME_OUT = 60
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Mafia User"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "HunterX User"
 
 
 @bot.on(admin_cmd(pattern="autoname"))  # pylint:disable=E0602
@@ -54,7 +54,7 @@ async def _(event):
 
         # await borg.send_message(  # pylint:disable=E0602
 
-        #     Config.MAFIABOT_LOGGER,  # pylint:disable=E0602
+        #     Config.HUNTERX_LOGGER,  # pylint:disable=E0602
 
         #     "Successfully Changed Profile Name"
 
@@ -62,7 +62,7 @@ async def _(event):
 
         await asyncio.sleep(DEL_TIME_OUT)
 
-    await mafia.edit(f"Auto Name has been started my Master")
+    await hunter.edit(f"Auto Name has been started my Master")
 
 
 @bot.on(admin_cmd(pattern="autobio"))  # pylint:disable=E0602
@@ -86,7 +86,7 @@ async def _(event):
         # else:
         # logger.info(r.stringify())
         # await borg.send_message(  # pylint:disable=E0602
-        # Config.MAFIABOT_LOGGER,  # pylint:disable=E0602
+        # Config.HUNTERX_LOGGER,  # pylint:disable=E0602
         # "Successfully Changed Profile Bio"
         # )
         await asyncio.sleep(DEL_TIME_OUT)
