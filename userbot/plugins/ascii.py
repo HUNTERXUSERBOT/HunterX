@@ -8,7 +8,7 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import CMD_HELP
-from mafiabot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from hunterx.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
 from . import *
