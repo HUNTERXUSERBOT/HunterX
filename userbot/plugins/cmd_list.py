@@ -1,14 +1,14 @@
 import asyncio
 import io
 
-from mafiabot.utils import admin_cmd, edit_or_reply, sudo_cmd
-from userbot import bot as mafiabot
+from hunterx.utils import admin_cmd, edit_or_reply, sudo_cmd
+from userbot import bot as hunterx
 from userbot.Config import Config
 from . import *
 
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Mafia User"
-mafia_logo = "./H1M4N5HU0P/mafiabot_logo.jpg"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "HunterX User"
+mafia_logo = "./HUNTERXUSERBOT/HunterX.jpg"
 
 @mafiabot.on(admin_cmd(pattern=r"cmds"))
 @mafiabot.on(sudo_cmd(pattern=r"cmds", allow_sudo=True))
