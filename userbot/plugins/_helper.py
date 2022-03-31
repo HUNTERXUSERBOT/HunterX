@@ -5,7 +5,7 @@ import requests
 from telethon import functions
 
 from userbot import ALIVE_NAME, CMD_LIST, SUDO_LIST
-from mafiabot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from hunterx.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 
 @bot.on(admin_cmd(pattern="help ?(.*)", outgoing=True))
@@ -14,7 +14,7 @@ async def _(event):
         return
     tgbotusername = Config.TG_BOT_USER_NAME_BF_HER
     input_str = event.pattern_match.group(1)
-    if tgbotusername is not None or mafia_input == "text":
+    if tgbotusername is not None or hunter_input == "text":
         results = await event.client.inline_query(tgbotusername, "@MafiaBot_Support")
         await results[0].click(
             event.chat_id, reply_to=event.reply_to_msg_id, hide_via=True
@@ -40,7 +40,7 @@ async def info(event):
     input_str = event.pattern_match.group(1)
     if input_str == "text":
         string = (
-            "Total {count} commands found in {plugincount} sudo plugins of MafiaBot\n\n"
+            "Total {count} commands found in {plugincount} sudo plugins of HunterX\n\n"
         )
         mafiacount = 0
         plugincount = 0
@@ -50,7 +50,7 @@ async def info(event):
             for iter_list in SUDO_LIST[i]:
                 string += "    " + str(iter_list)
                 string += "\n"
-                mafiacount += 1
+                huntercount += 1
             string += "\n"
         if len(string) > 4095:
             data = string.format(count=mafiacount, plugincount=plugincount)
@@ -63,11 +63,11 @@ async def info(event):
                 .get("key")
             )
             url = f"https://nekobin.com/{key}"
-            reply_text = f"All commands of the MafiaBot are [here]({url})"
+            reply_text = f"All commands of the HunterX are [here]({url})"
             await event.reply(reply_text, link_preview=False)
             return
         await event.reply(
-            string.format(count=mafiacount, plugincount=plugincount), link_preview=False
+            string.format(count=huntercount, plugincount=plugincount), link_preview=False
         )
         return
     if input_str:
