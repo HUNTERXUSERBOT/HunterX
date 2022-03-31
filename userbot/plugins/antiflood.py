@@ -4,7 +4,7 @@ from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChatBannedRights
 
 from userbot.plugins.sql_helper import antiflood_sql as sql
-from mafiabot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from hunterx.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
 from . import *
