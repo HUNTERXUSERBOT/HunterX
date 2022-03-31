@@ -7,10 +7,10 @@ import asyncio
 from userbot.cmdhelp import CmdHelp
 
 from userbot import *
-from mafiabot.utils import *
+from hunterx.utils import *
 from userbot.Config import Config
 from . import *
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Mafia User"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "HunterX User"
 
 
 @bot.on(admin_cmd(pattern="imp(|n) (.*)", outgoing=True))
@@ -18,8 +18,8 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Mafia User"
 async def _(event):
     if event.fwd_from:
         return
-    h1m4n5hu0p = bot.uid
-    USERNAME = f"tg://user?id={h1m4n5hu0p}"
+    hunterxuserbot = bot.uid
+    USERNAME = f"tg://user?id={hunterxuserbot}"
     name = event.pattern_match.group(2)
     cmd = event.pattern_match.group(1).lower()
     text1 = await edit_or_reply(event, "Hmm... Looks like Something is wrong here🤔🧐!!")
@@ -63,40 +63,40 @@ async def _(event):
     )
     mafiaevent = await event.reply(f"{name} is ejected.......🤐")
     await asyncio.sleep(2)
-    await mafiaevent.edit("ඞㅤㅤㅤㅤ ㅤㅤㅤㅤ")
+    await hunterevent.edit("ඞㅤㅤㅤㅤ ㅤㅤㅤㅤ")
     await asyncio.sleep(0.5)
-    await mafiaevent.edit("ㅤඞㅤㅤㅤㅤ ㅤㅤㅤ")
+    await hunterevent.edit("ㅤඞㅤㅤㅤㅤ ㅤㅤㅤ")
     await asyncio.sleep(0.5)
-    await mafiaevent.edit("ㅤㅤ ඞㅤㅤㅤㅤㅤㅤ")
+    await hunterevent.edit("ㅤㅤ ඞㅤㅤㅤㅤㅤㅤ")
     await asyncio.sleep(0.5)
-    await mafiaevent.edit("ㅤㅤㅤ ඞㅤㅤㅤㅤㅤ")
+    await hunterevent.edit("ㅤㅤㅤ ඞㅤㅤㅤㅤㅤ")
     await asyncio.sleep(0.5)
-    await mafiaevent.edit("ㅤㅤㅤㅤ ඞㅤㅤㅤㅤ")
+    await hunterevent.edit("ㅤㅤㅤㅤ ඞㅤㅤㅤㅤ")
     await asyncio.sleep(0.5)
-    await mafiaevent.edit("ㅤㅤㅤㅤㅤ ඞㅤㅤㅤ")
+    await hunterevent.edit("ㅤㅤㅤㅤㅤ ඞㅤㅤㅤ")
     await asyncio.sleep(0.5)
-    await mafiaevent.edit("ㅤㅤㅤㅤㅤㅤ ඞㅤㅤ")
+    await hunterevent.edit("ㅤㅤㅤㅤㅤㅤ ඞㅤㅤ")
     await asyncio.sleep(0.5)
-    await mafiaevent.edit("ㅤㅤㅤㅤㅤㅤㅤ ඞㅤ")
+    await hunterevent.edit("ㅤㅤㅤㅤㅤㅤㅤ ඞㅤ")
     await asyncio.sleep(0.5)
-    await mafiaevent.edit("ㅤㅤㅤㅤㅤㅤㅤㅤ ඞ")
+    await hunterevent.edit("ㅤㅤㅤㅤㅤㅤㅤㅤ ඞ")
     await asyncio.sleep(0.5)
-    await mafiaevent.edit("ㅤㅤㅤㅤㅤㅤㅤㅤ ㅤ")
+    await hunterevent.edit("ㅤㅤㅤㅤㅤㅤㅤㅤ ㅤ")
     await asyncio.sleep(0.2)
     await stcr4.delete()
     if cmd == "":
-        await mafiaevent.edit(
+        await hunterevent.edit(
             f". 　　　。　　　　•　 　ﾟ　　。 　　.\n .　　　 　　.　　　　　。　　 。　. 　\n\n  . 　　 。   　     ඞ         。 . 　　 • 　　　　•\n\n  ﾟ{name} was an Imposter.      。　. 　 　       。　.                                        。　. \n                                   　.          。　  　. \n　'         0 Impostor remains    　 。　.  　　.                。　.        。 　     .          。 　            .               .         .    ,      。\n　　ﾟ　　　.　　.    ,　 　。　 　. 　 .     。"
         )
         await asyncio.sleep(4)
-        await mafiaevent.delete()
+        await hunterevent.delete()
         await event.client.send_file(event.chat_id, "CAADAQADLQADnjOcH39IqwyR6Q_0Ag")
     elif cmd == "n":
-        await mafiaevent.edit(
+        await hunterevent.edit(
             f". 　　　。　　　　•　 　ﾟ　　。 　　.\n .　　　 　　.　　　　　。　　 。　. 　\n\n  . 　　 。   　     ඞ         。 . 　　 • 　　　　•\n\n  ﾟ{name} was not an Imposter.      。　. 　 　       。　.                                        。　. \n                                   　.          。　  　. \n　'         1 Impostor remains    　 。　.  　　.                。　.        。 　     .          。 　            .               .         .    ,      。\n　　ﾟ　　　.　　.    ,　 　。　 　. 　 .     。"
         )
         await asyncio.sleep(4)
-        await mafiaevent.delete()
+        await hunterevent.delete()
         await event.client.send_file(event.chat_id, "CAADAQADQAADnjOcH-WOkB8DEctJAg")
 
 
@@ -107,34 +107,34 @@ async def _(event):
         return
     name = event.pattern_match.group(2)
     cmd = event.pattern_match.group(1).lower()
-    mafiaevent = await edit_or_reply(event, f"{name} is ejected.......")
+    hunterevent = await edit_or_reply(event, f"{name} is ejected.......")
     await asyncio.sleep(2)
-    await mafiaevent.edit("ඞㅤㅤㅤㅤ ㅤㅤㅤㅤ")
+    await hunterevent.edit("ඞㅤㅤㅤㅤ ㅤㅤㅤㅤ")
     await asyncio.sleep(0.8)
-    await mafiaevent.edit("ㅤඞㅤㅤㅤㅤ ㅤㅤㅤ")
+    await hunterevent.edit("ㅤඞㅤㅤㅤㅤ ㅤㅤㅤ")
     await asyncio.sleep(0.8)
-    await mafiaevent.edit("ㅤㅤ ඞㅤㅤㅤㅤㅤㅤ")
+    await hunterevent.edit("ㅤㅤ ඞㅤㅤㅤㅤㅤㅤ")
     await asyncio.sleep(0.8)
-    await mafiaevent.edit("ㅤㅤㅤ ඞㅤㅤㅤㅤㅤ")
+    await hunterevent.edit("ㅤㅤㅤ ඞㅤㅤㅤㅤㅤ")
     await asyncio.sleep(0.8)
-    await mafiaevent.edit("ㅤㅤㅤㅤ ඞㅤㅤㅤㅤ")
+    await hunterevent.edit("ㅤㅤㅤㅤ ඞㅤㅤㅤㅤ")
     await asyncio.sleep(0.8)
-    await mafiaevent.edit("ㅤㅤㅤㅤㅤ ඞㅤㅤㅤ")
+    await hunterevent.edit("ㅤㅤㅤㅤㅤ ඞㅤㅤㅤ")
     await asyncio.sleep(0.8)
-    await mafiaevent.edit("ㅤㅤㅤㅤㅤㅤ ඞㅤㅤ")
+    await hunterevent.edit("ㅤㅤㅤㅤㅤㅤ ඞㅤㅤ")
     await asyncio.sleep(0.8)
-    await mafiaevent.edit("ㅤㅤㅤㅤㅤㅤㅤ ඞㅤ")
+    await hunterevent.edit("ㅤㅤㅤㅤㅤㅤㅤ ඞㅤ")
     await asyncio.sleep(0.8)
-    await mafiaevent.edit("ㅤㅤㅤㅤㅤㅤㅤㅤ ඞ")
+    await hunterevent.edit("ㅤㅤㅤㅤㅤㅤㅤㅤ ඞ")
     await asyncio.sleep(0.8)
-    await mafiaevent.edit("ㅤㅤㅤㅤㅤㅤㅤㅤ ㅤ")
+    await hunterevent.edit("ㅤㅤㅤㅤㅤㅤㅤㅤ ㅤ")
     await asyncio.sleep(0.2)
     if cmd == "":
-        await mafiaevent.edit(
+        await hunterevent.edit(
             f". 　　　。　　　　•　 　ﾟ　　。 　　.\n .　　　 　　.　　　　　。　　 。　. 　\n\n  . 　　 。   　     ඞ         。 . 　　 • 　　　　•\n\n  ﾟ {name} was an Imposter.      。　. 　 　       。　.                                        。　. \n                                   　.          。　  　. \n　'         0 Impostor remains    　 。　.  　　.                。　.        。 　     .          。 　            .               .         .    ,      。\n　　ﾟ　　　.　　.    ,　 　。　 　. 　 .     。"
         )
     elif cmd == "n":
-        await mafiaevent.edit(
+        await hunterevent.edit(
             f". 　　　。　　　　•　 　ﾟ　　。 　　.\n .　　　 　　.　　　　　。　　 。　. 　\n\n  . 　　 。   　     ඞ         。 . 　　 • 　　　　•\n\n  ﾟ {name} was not an Imposter.      。　. 　 　       。　.                                        。　. \n                                   　.          。　  　. \n　'         1 Impostor remains    　 。　.  　　.                。　.        。 　     .          。 　            .               .         .    ,      。\n　　ﾟ　　　.　　.    ,　 　。　 　. 　 .     。"
         )
 
