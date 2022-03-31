@@ -13,7 +13,7 @@ from requests import get
 from userbot.cmdhelp import CmdHelp
 
 from userbot import *
-from mafiabot.utils import *
+from hunterx.utils import *
 from userbot.Config import Config
 from . import *
 
