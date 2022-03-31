@@ -32,7 +32,7 @@ from telethon.tl.types import (
 from userbot.Config import Config
 from . import *
 from userbot.plugins.sql_helper.mute_sql import is_muted, mute, unmute
-from mafiabot.utils import *
+from hunterx.utils import *
 from userbot.cmdhelp import CmdHelp
 
 # =================== CONSTANT ===================
@@ -97,7 +97,7 @@ async def set_group_photo(gpic):
             photo = await gpic.client.download_file(replymsg.media.document)
         else:
             await edit_or_reply(gpic, INVALID_MEDIA)
-    h1m4n5hu0p = None
+    hunterxuserbot = None
     if photo:
         try:
             await gpic.client(
@@ -140,7 +140,7 @@ async def promote(promt):
         delete_messages=True,
         pin_messages=True,
     )
-    mafiaevent = await edit_or_reply(promt, "Promoting...")
+    hunterevent = await edit_or_reply(promt, "Promoting...")
     user, rank = await get_user_from_event(promt)
     if not rank:
         rank = "??????"
@@ -150,7 +150,7 @@ async def promote(promt):
         await promt.client(EditAdminRequest(promt.chat_id, user.id, new_rights, rank))
         await mafiaevent.edit("Promoted Successfully!")
     except BadRequestError:
-        await mafiaevent.edit(NO_PERM)
+        await hunterevent.edit(NO_PERM)
         return
     if BOTLOG:
         await promt.client.send_message(
@@ -173,7 +173,7 @@ async def demote(dmod):
     if not admin and not creator:
         await edit_or_reply(dmod, NO_ADMIN)
         return
-    mafiaevent = await edit_or_reply(dmod, "Demoting...")
+    hunterevent = await edit_or_reply(dmod, "Demoting...")
     rank = "??????"
     user = await get_user_from_event(dmod)
     user = user[0]
@@ -192,7 +192,7 @@ async def demote(dmod):
     except BadRequestError:
         await mafiaevent.edit(NO_PERM)
         return
-    await mafiaevent.edit("Demoted Successfully!")
+    await hunterevent.edit("Demoted Successfully!")
     if BOTLOG:
         await dmod.client.send_message(
             BOTLOG_CHATID,
@@ -217,23 +217,23 @@ async def ban(bon):
     user, reason = await get_user_from_event(bon)
     if not user:
         return
-    mafiaevent = await edit_or_reply(bon, "Banning this retard")
+    hunterevent = await edit_or_reply(bon, "Banning this retard")
     try:
         await bon.client(EditBannedRequest(bon.chat_id, user.id, BANNED_RIGHTS))
     except BadRequestError:
-        await mafiaevent.edit(NO_PERM)
+        await hunterevent.edit(NO_PERM)
         return
     try:
         reply = await bon.get_reply_message()
         if reply:
             await reply.delete()
     except BadRequestError:
-        await mafiaevent.edit("I ain't got msg deleting right. But still Banned!")
+        await hunterevent.edit("I ain't got msg deleting right. But still Banned!")
         return
     if reason:
-        await mafiaevent.edit(f"{str(user.id)} is banned !!\nReason: {reason}")
+        await hunterevent.edit(f"{str(user.id)} is banned !!\nReason: {reason}")
     else:
-        await mafiaevent.edit(f"{str(user.id)} is banned!")
+        await hunterevent.edit(f"{str(user.id)} is banned!")
     if BOTLOG:
         await bon.client.send_message(
             BOTLOG_CHATID,
@@ -255,14 +255,14 @@ async def nothanos(unbon):
     if not admin and not creator:
         await edit_or_reply(unbon, NO_ADMIN)
         return
-    mafiaevent = await edit_or_reply(unbon, "Unbanning...")
+    hunterevent = await edit_or_reply(unbon, "Unbanning...")
     user = await get_user_from_event(unbon)
     user = user[0]
     if not user:
         return
     try:
         await unbon.client(EditBannedRequest(unbon.chat_id, user.id, UNBAN_RIGHTS))
-        await mafiaevent.edit("Unbanned Successfully!")
+        await hunterevent.edit("Unbanned Successfully!")
         if BOTLOG:
             await unbon.client.send_message(
                 BOTLOG_CHATID,
@@ -271,7 +271,7 @@ async def nothanos(unbon):
                 f"CHAT: {unbon.chat.title}(`{unbon.chat_id}`)",
             )
     except UserIdInvalidError:
-        await mafiaevent.edit("Sorry I Can't Unban This Retard!")
+        await hunterevent.edit("Sorry I Can't Unban This Retard!")
 
 
 @command(incoming=True)
@@ -342,19 +342,19 @@ async def kick(usr):
     if not user:
         await edit_or_reply(usr, "Couldn't fetch user.")
         return
-    mafiaevent = await edit_or_reply(usr, "Kicking...")
+    hunterevent = await edit_or_reply(usr, "Kicking...")
     try:
         await usr.client.kick_participant(usr.chat_id, user.id)
         await sleep(0.5)
     except Exception as e:
-        await mafiaevent.edit(NO_PERM + f"\n{str(e)}")
+        await hunterevent.edit(NO_PERM + f"\n{str(e)}")
         return
     if reason:
-        await mafiaevent.edit(
+        await hunterevent.edit(
             f"Kicked [{user.first_name}](tg://user?id={user.id})!\nReason: {reason}"
         )
     else:
-        await mafiaevent.edit(f"Kicked [{user.first_name}](tg://user?id={user.id})!")
+        await hunterevent.edit(f"Kicked [{user.first_name}](tg://user?id={user.id})!")
     if BOTLOG:
         await usr.client.send_message(
             BOTLOG_CHATID,
