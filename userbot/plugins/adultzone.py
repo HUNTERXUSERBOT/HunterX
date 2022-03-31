@@ -10,7 +10,7 @@ import requests
 
 from userbot.Config import Config
 from . import *
-from mafiabot.utils import *
+from hunterx.utils import *
 from userbot.cmdhelp import CmdHelp
 
 @bot.on(admin_cmd("boobs$"))
