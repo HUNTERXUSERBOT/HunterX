@@ -1,8 +1,4 @@
-"""	
-	Anilist Search Plugin for Userbot	
-	Usage : .anilist animeName	
-	By :- @Zero_cool7870	
-"""
+
 
 import json
 import re
@@ -10,7 +6,7 @@ import re
 import requests
 
 from userbot import *
-from mafiabot.utils import *
+from hunterx.utils import *
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
 from . import *
