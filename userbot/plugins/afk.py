@@ -1,5 +1,4 @@
-# by unibot...Thanks @spechide
-# Now will be used in MafiaBot too....
+
 import asyncio
 import datetime
 from datetime import datetime
@@ -7,12 +6,12 @@ from datetime import datetime
 from telethon import events
 from telethon.tl import functions, types
 from userbot import CMD_HELP, mafiaversion
-from mafiabot.utils import admin_cmd, edit_or_reply
+from hunterx.utils import admin_cmd, edit_or_reply
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
 from . import *
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Mafia User"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Hunter User"
 
 mafia = bot.uid
 
@@ -59,14 +58,14 @@ async def set_not_afk(event):
         except Exception as e:  # pylint:disable=C0103,W0703
             await bot.send_message(  # pylint:disable=E0602
                 event.chat_id,
-                "Please set `MAFIABOT_LOGGER` "
+                "Please set `HUNTERX_LOGGER` "
                 + "for the proper functioning of afk functionality "
-                + "Ask in @MafiaBot_Chit_Chat to get help setting this value\n\n `{}`".format(str(e)),
+                + "Ask in @HunTerXsuPPorT to get help setting this value\n\n `{}`".format(str(e)),
                 reply_to=event.message.id,
                 silent=True,
             )
         await asyncio.sleep(5)
-        await mafiabot.delete()
+        await hunterx.delete()
         USER_AFK = {}  # pylint:disable=E0602
         afk_time = None  # pylint:disable=E0602
 
@@ -113,7 +112,7 @@ async def on_afk(event):
 async def _(event):
     if event.fwd_from:
         return
-    h1m4n5hu0p = await event.get_reply_message()
+    hunterxuserbot = await event.get_reply_message()
     global USER_AFK  # pylint:disable=E0602
     global afk_time  # pylint:disable=E0602
     global last_afk_message  # pylint:disable=E0602
@@ -138,16 +137,16 @@ async def _(event):
         USER_AFK = f"yes: {reason} {mafiapic}"  # pylint:disable=E0602
         if reason:
             await bot.send_message(
-                event.chat_id, f"__**I'm going afk🚶**__ \n⚜️ Because `{reason}`", file=mafiapic
+                event.chat_id, f"__**I'm going afk🚶**__ \n⚜️ Because `{reason}`", file=hunterpic
             )
         else:
-            await bot.send_message(event.chat_id, f"**I am Going afk!**🚶", file=mafiapic)
+            await bot.send_message(event.chat_id, f"**I am Going afk!**🚶", file=hunterpic)
         await asyncio.sleep(0.001)
         await event.delete()
         try:
             await bot.send_message(  # pylint:disable=E0602
-                Config.MAFIABOT_LOGGER,  # pylint:disable=E0602
-                f"#AFKTRUE \nSet AFK mode to True, and Reason is {reason}",file=mafiapic
+                Config.HUNTERZ_LOGGER,  # pylint:disable=E0602
+                f"#AFKTRUE \nSet AFK mode to True, and Reason is {reason}",file=hunterpic
             )
         except Exception as e:  # pylint:disable=C0103,W0703
             logger.warn(str(e))  # pylint:disable=E0602
