@@ -19,7 +19,7 @@ import requests
 from telethon.tl import functions
 
 from userbot import CMD_HELP
-from mafiabot.utils import admin_cmd
+from hunterx.utils import admin_cmd
 from userbot.cmdhelp import CmdHelp
 
 COLLECTION_STRING1 = [
