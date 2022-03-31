@@ -12,15 +12,15 @@ from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 
 from userbot import CMD_HELP
-from mafiabot.utils import admin_cmd
+from hunterx.utils import admin_cmd
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
 from . import *
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Mafia User"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "HunterX User"
 
-DEFAULTUSERBIO = str(BIO_MSG) if BIO_MSG else "LEGENDARY AF MAFIABOT"
-BOTLOG_CHATID = Config.MAFIABOT_LOGGER
+DEFAULTUSERBIO = str(BIO_MSG) if BIO_MSG else "𝙃𝙐𝙉𝙏𝙀𝙍 𝙓 𝙂𝙊𝘿"
+BOTLOG_CHATID = Config.HUNTERX_LOGGER
 BOTLOG = True
 
 
