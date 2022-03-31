@@ -13,7 +13,7 @@ from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
 from . import *
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Mafia User"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "HunterX User"
 
 USERID = bot.uid
 
@@ -46,14 +46,14 @@ async def _(event):
             await event.client.send_message(chat, reply_message)
             response = await response
         except YouBlockedUserError:
-            await h1m4n5hu0p.edit("`Please unblock @asciiart_bot and try again`")
+            await hunterxuserbot.edit("`Please unblock @asciiart_bot and try again`")
             return
         if response.text.startswith("Forward"):
-            await h1m4n5hu0p.edit(
+            await hunterxuserbot.edit(
                 "`can you kindly disable your forward privacy settings for good?`"
             )
         else:
-            await h1m4n5hu0p.delete()
+            await hunterxuserbot.delete()
             await event.client.send_file(
                 event.chat_id,
                 response.message.media,
@@ -79,7 +79,7 @@ async def _(event):
     if reply_message.sender.bot:
         await edit_or_reply(event, "Reply to actual users message.😒🤐")
         return
-    h1m4n5hu0p = await edit_or_reply(event, "`Processing`")
+    hunterxuserbot = await edit_or_reply(event, "`Processing`")
     async with event.client.conversation(chat) as conv:
         try:
             await conv.send_message("/start")
@@ -91,7 +91,7 @@ async def _(event):
         except YouBlockedUserError:
             await h1m4n5hu0p.edit("Please unblock @Lines50Bot and try again")
             return
-        await h1m4n5hu0p.delete()
+        await hunterxuserbot.delete()
         await event.client.send_file(
             event.chat_id,
             pic,
