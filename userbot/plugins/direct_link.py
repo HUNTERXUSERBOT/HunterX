@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 from humanize import naturalsize
 
 from userbot import CMD_HELP
-from mafiabot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from hunterx.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot.cmdhelp import CmdHelp
 
 @bot.on(admin_cmd(outgoing=True, pattern=r"direct(?: |$)([\s\S]*)"))
@@ -60,7 +60,7 @@ async def direct_link_generator(request):
             reply += androidfilehost(link)
         else:
             reply += re.findall(r"\bhttps?://(.*?[^/]+)", link)[0] + "is not supported"
-    await mafiaevent.edit(reply)
+    await hunterevent.edit(reply)
 
 
 def gdrive(url: str) -> str:
