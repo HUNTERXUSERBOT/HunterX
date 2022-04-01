@@ -1,7 +1,7 @@
 # Added more fonts by @Kraken_The_BadASS
 # Ported from saitama i guess
 
-from mafiabot.utils import admin_cmd, sudo_cmd, edit_or_reply
+from hunterx.utils import admin_cmd, sudo_cmd, edit_or_reply
 from userbot.cmdhelp import CmdHelp
 
 normiefont = [
