@@ -1,14 +1,14 @@
-# this plugin made by Mafia Userbot
+
 
 """Plugin for HellBot Repo
 
-\nCode by @H1M4N5HU0P
+\nCode by @UNK_HUNTER
 
 type '.hellbot' to get HellBot repo
 """
 
 import random, re
-from mafiabot.utils import admin_cmd
+from hunterx.utils import admin_cmd
 import asyncio
 from telethon import events
 
