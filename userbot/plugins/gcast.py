@@ -10,7 +10,7 @@ from telethon.tl.functions.channels import EditAdminRequest
 from telethon.tl.types import ChatAdminRights
 
 from . import *
-from mafiabot.utils import admin_cmd, edit_or_reply
+from hunterx.utils import admin_cmd, edit_or_reply
 
 @bot.on(admin_cmd(pattern="gcast ?(.*)"))
 async def gcast(event):
