@@ -1,6 +1,6 @@
 from userbot.plugins.sql_helper.gmute_sql import is_gmuted, gmute, ungmute
 import asyncio
-from mafiabot.utils import admin_cmd, sudo_cmd, edit_or_reply
+from hunterx.utils import admin_cmd, sudo_cmd, edit_or_reply
 from userbot.cmdhelp import CmdHelp
 from telethon import events
 
