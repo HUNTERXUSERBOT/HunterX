@@ -35,29 +35,29 @@ async def payf(event):
 
 @bot.on(admin_cmd(pattern="cat$"))
 @bot.on(sudo_cmd(pattern="cat$", allow_sudo=True))
-async def hmm(mafia):
-    if mafia.fwd_from:
+async def hmm(hunter):
+    if hunter.fwd_from:
         return
     reactcat = nekos.textcat()
-    await edit_or_reply(mafia, reactcat)
+    await edit_or_reply(hunter, reactcat)
 
 
 @bot.on(admin_cmd(pattern="why$"))
 @bot.on(sudo_cmd(pattern="why$", allow_sudo=True))
-async def hmm(mafia):
-    if mafia.fwd_from:
+async def hmm(hunter):
+    if hunter.fwd_from:
         return
-    whymafia = nekos.why()
-    await edit_or_reply(mafia, whymafia)
+    whyhunter = nekos.why()
+    await edit_or_reply(hunter, whyhunter)
 
 
 @bot.on(admin_cmd(pattern="fact$"))
 @bot.on(sudo_cmd(pattern="fact$", allow_sudo=True))
-async def hmm(mafia):
-    if mafia.fwd_from:
+async def hmm(hunter):
+    if hunter.fwd_from:
         return
-    factmafia = nekos.fact()
-    await edit_or_reply(mafia, factmafia)
+    facthunter = nekos.fact()
+    await edit_or_reply(hunter, facthunter)
 
 
 CmdHelp("funtxts").add_command(
