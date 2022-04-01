@@ -2,7 +2,7 @@ import string
 
 from telethon.tl.types import Channel
 
-from mafiabot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from hunterx.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot import CMD_HELP
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
@@ -16,12 +16,13 @@ groupsid = []
 
 
 async def all_groups_id(mafia):
-    mafiagroups = []
-    async for dialog in mafia.client.iter_dialogs():
+    huntergroups = []
+    async for dialog in hunter.client.iter_dialogs():
         entity = dialog.entity
         if isinstance(entity, Channel) and entity.megagroup:
-            mafiagroups.append(entity.id)
-    return mafiagroups
+            T
+        huntergroups.append(entity.id)
+    return huntergroups
 
 
 @bot.on(admin_cmd(pattern="frwd$"))
@@ -29,7 +30,7 @@ async def all_groups_id(mafia):
 async def _(event):
     if event.fwd_from:
         return
-    if Config.MAFIABOT_LOGGER is None:
+    if Config.HUNTERX_LOGGER is None:
         await edit_or_reply(
             event,
             "Please set the required environment variable `MAFIABOT_LOGGER` for this plugin to work",
