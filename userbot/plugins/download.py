@@ -10,7 +10,7 @@ from datetime import datetime
 from pySmartDL import SmartDL
 
 from userbot import CMD_HELP
-from mafiabot.utils import admin_cmd, humanbytes, progress, sudo_cmd
+from hunterx.utils import admin_cmd, humanbytes, progress, sudo_cmd
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
 from . import *
