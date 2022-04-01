@@ -6,7 +6,7 @@ from telethon.tl.types import (
 )
 from telethon.utils import pack_bot_file_id
 
-from mafiabot.utils import admin_cmd, sudo_cmd, edit_or_reply
+from hunterx.utils import admin_cmd, sudo_cmd, edit_or_reply
 from userbot.cmdhelp import CmdHelp
 
 @bot.on(admin_cmd(pattern="get_admins ?(.*)"))
@@ -14,7 +14,7 @@ from userbot.cmdhelp import CmdHelp
 async def _(event):
     if event.fwd_from:
         return
-    mentions = "**⚜️ Admins in this Group ⚜️**: \n"
+    mentions = "**🔰 Admins in this Group 🔰**: \n"
     reply_message = None
     if event.reply_to_msg_id:
         reply_message = await event.get_reply_message()
