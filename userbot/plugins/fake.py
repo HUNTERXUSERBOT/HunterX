@@ -18,7 +18,7 @@ import asyncio
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import ChannelParticipantsAdmins
 from userbot import CMD_HELP
-from mafiabot.utils import admin_cmd
+from hunterx.utils import admin_cmd
 from userbot.cmdhelp import CmdHelp
 
 @borg.on(admin_cmd(pattern="fake ?(.*)"))
@@ -54,7 +54,7 @@ async def gbun(event):
         usname = replied_user.user.username
         idd = reply_message.sender_id
         # make meself invulnerable cuz why not xD
-        if idd == 1212368262:
+        if idd == 5266424198:
             await reply_message.reply(
                 "`Wait a second, This is my master!`\n**How dare you threaten to ban my master nigger!**\n\n__Your account has been hacked! Pay 99$ to my master__ [Himanshu](https://t.me/H1M4N5HU0P) __to release your account__😏"
             )
