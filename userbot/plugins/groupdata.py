@@ -20,7 +20,7 @@ from telethon.tl.types import ChannelParticipantsAdmins, MessageActionChannelMig
 from telethon.utils import get_input_location
 
 from userbot import CMD_HELP
-from mafiabot.utils import admin_cmd, errors_handler, sudo_cmd, edit_or_reply
+from hunterx.utils import admin_cmd, errors_handler, sudo_cmd, edit_or_reply
 from userbot.cmdhelp import CmdHelp
 
 
