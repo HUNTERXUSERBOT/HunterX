@@ -8,7 +8,7 @@ import requests
 from . import *
 from userbot import CMD_HELP
 from userbot.Config import Config
-from mafiabot.utils import admin_cmd, sudo_cmd
+from hunterx.utils import admin_cmd, sudo_cmd
 from userbot.cmdhelp import CmdHelp
 from userbot.helpers.extras import delete_mafia, edit_or_reply as eor
 
@@ -22,10 +22,10 @@ heroku_api = "https://api.heroku.com"
 HEROKU_APP_NAME = Config.HEROKU_APP_NAME
 HEROKU_API_KEY = Config.HEROKU_API_KEY
 
-mafia_logo = "./H1M4N5HU0P/mafiabot_logo.jpg"
+hunter_logo = "./HUNTERXUSERBOT/HunterX.jpg"
 
-MAFIA_NAME = str(ALIVE_NAME) if ALIVE_NAME else "Mafia User"
-h1m4n5hu0p = bot.uid
+MAFIA_NAME = str(ALIVE_NAME) if ALIVE_NAME else "HunterX User"
+hunterxuserbot = bot.uid
 
 @borg.on(
     admin_cmd(pattern="(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)", outgoing=True)
