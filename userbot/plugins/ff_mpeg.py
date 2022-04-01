@@ -5,7 +5,7 @@ import os
 import time
 from datetime import datetime
 
-from mafiabot.utils import admin_cmd, sudo_cmd, progress
+from hunterx.utils import admin_cmd, sudo_cmd, progress
 from userbot import CMD_HELP
 from userbot.cmdhelp import CmdHelp
 
