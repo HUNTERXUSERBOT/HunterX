@@ -3,7 +3,7 @@ from pathlib import Path
 
 from telethon.tl.types import InputMessagesFilterDocument
 
-from mafiabot.utils import admin_cmd, load_module
+from hunterx.utils import admin_cmd, load_module
 from var import Var
 from userbot.cmdhelp import CmdHelp
 
@@ -11,7 +11,7 @@ from userbot.cmdhelp import CmdHelp
 async def install(event):
     if event.fwd_from:
         return
-    chat = Var.MAFIABOT_LOGGER
+    chat = Var.HUNTERX_LOGGER
     documentss = await borg.get_messages(chat, None, filter=InputMessagesFilterDocument)
     total = int(documentss.total)
     total_doxx = range(0, total)
