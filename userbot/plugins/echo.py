@@ -16,13 +16,13 @@ from userbot.plugins.sql_helper.echo_sql import (
     is_echo,
     remove_echo,
 )
-from mafiabot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from hunterx.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot.cmdhelp import CmdHelp
 
 
 @bot.on(admin_cmd(pattern="echo$"))
 @bot.on(sudo_cmd(pattern="echo$", allow_sudo=True))
-async def echo(mafia):
+async def echo(hunter):
     if mafia.fwd_from:
         return
     if mafia.reply_to_msg_id is not None:
@@ -30,48 +30,48 @@ async def echo(mafia):
         user_id = reply_msg.sender_id
         chat_id = mafia.chat_id
         try:
-            h1m4n5hu0p = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-            h1m4n5hu0p = Get(h1m4n5hu0p)
-            await mafia.client(h1m4n5hu0p)
+            hunterxuserbot = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+            hunterxuserbot = Get(hunterxuserbot)
+            await hunter.client(hunterxuserbot)
         except BaseException:
             pass
         if is_echo(user_id, chat_id):
-            await edit_or_reply(mafia, "The user is already enabled with echo ")
+            await edit_or_reply(hunter, "The user is already enabled with echo ")
             return
         addecho(user_id, chat_id)
-        await edit_or_reply(mafia, "Hii....😄🤓")
+        await edit_or_reply(hunter, "Hii....😄🤓")
     else:
-        await edit_or_reply(mafia, "Reply to a User's message to echo his messages")
+        await edit_or_reply(hunter, "Reply to a User's message to echo his messages")
 
 
 @bot.on(admin_cmd(pattern="rmecho$"))
 @bot.on(sudo_cmd(pattern="rmecho$", allow_sudo=True))
-async def echo(mafia):
-    if mafia.fwd_from:
+async def echo(hunter):
+    if hunter.fwd_from:
         return
-    if mafia.reply_to_msg_id is not None:
+    if hunter.reply_to_msg_id is not None:
         reply_msg = await mafia.get_reply_message()
         user_id = reply_msg.sender_id
         chat_id = mafia.chat_id
         try:
-            h1m4n5hu0p = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-            h1m4n5hu0p = Get(h1m4n5hu0p)
-            await mafia.client(h1m4n5hu0p)
+            hunterxuserbot = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+            hunterxuserbot = Get(hunterxuserbot)
+            await hunter.client(hunterxuserbot)
         except BaseException:
             pass
         if is_echo(user_id, chat_id):
             remove_echo(user_id, chat_id)
-            await edit_or_reply(mafia, "Echo has been stopped for the user")
+            await edit_or_reply(hunter, "Echo has been stopped for the user")
         else:
-            await edit_or_reply(mafia, "The user is not activated with echo")
+            await edit_or_reply(hunter, "The user is not activated with echo")
     else:
-        await edit_or_reply(mafia, "Reply to a User's message to echo his messages")
+        await edit_or_reply(hunter, "Reply to a User's message to echo his messages")
 
 
 @bot.on(admin_cmd(pattern="listecho$"))
 @bot.on(sudo_cmd(pattern="listecho$", allow_sudo=True))
-async def echo(mafia):
-    if mafia.fwd_from:
+async def echo(hunter):
+    if hunter.fwd_from:
         return
     lsts = get_all_echos()
     if len(lsts) > 0:
@@ -99,19 +99,19 @@ async def echo(mafia):
 
 
 @bot.on(events.NewMessage(incoming=True))
-async def samereply(mafia):
-    if mafia.chat_id in Config.UB_BLACK_LIST_CHAT:
+async def samereply(hunter):
+    if hunter.chat_id in Config.UB_BLACK_LIST_CHAT:
         return
-    if is_echo(mafia.sender_id, mafia.chat_id):
+    if is_echo(hunter.sender_id, hunter.chat_id):
         await asyncio.sleep(2)
         try:
-            h1m4n5hu0p = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-            h1m4n5hu0p = Get(h1m4n5hu0p)
-            await mafia.client(h1m4n5hu0p)
+            hunterxuserbot = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+            hunterxuserbot = Get(hunterxuserbot)
+            await hunter.client(hunterxuserbot)
         except BaseException:
             pass
-        if mafia.message.text or mafia.message.sticker:
-            await mafia.reply(mafia.message)
+        if hunter.message.text or hunter.message.sticker:
+            await hunter.reply(mafia.message)
 
 
 CmdHelp("echo").add_command(
