@@ -64,11 +64,11 @@ async def ff_mpeg_trim_cmd(event):
                     ),
                 )
             except Exception as e:
-                await mafiaevent.edit(str(e))
+                await hunterevent.edit(str(e))
             else:
                 end = datetime.now()
                 ms = (end - start).seconds
-                await mafiaevent.edit(
+                await hunterevent.edit(
                     f"Saved file to `{downloaded_file_name}` in `{ms}` seconds."
                 )
         else:
@@ -92,7 +92,7 @@ async def ff_mpeg_trim_cmd(event):
         )
         return
     reply_to_id = await reply_id(event)
-    mafiaevent = await edit_or_reply(event, "`Triming the media......`")
+    hunterevent = await edit_or_reply(event, "`Triming the media......`")
     current_message_text = event.raw_text
     cmt = current_message_text.split(" ")
     start = datetime.now()
@@ -134,7 +134,7 @@ async def ff_mpeg_trim_cmd(event):
         )
         if o is None:
             return await edit_delete(
-                mafiaevent, f"**Error : **`Can't complete the process`"
+                hunterevent, f"**Error : **`Can't complete the process`"
             )
         try:
             c_time = time.time()
@@ -173,7 +173,7 @@ async def ff_mpeg_trim_cmd(event):
         )
         return
     reply_to_id = await reply_id(event)
-    mafiaevent = await edit_or_reply(event, "`Triming the media...........`")
+    hunterevent = await edit_or_reply(event, "`Triming the media...........`")
     current_message_text = event.raw_text
     cmt = current_message_text.split(" ")
     start = datetime.now()
@@ -192,7 +192,7 @@ async def ff_mpeg_trim_cmd(event):
         )
         if o is None:
             return await edit_delete(
-                mafiaevent, f"**Error : **`Can't complete the process`"
+                hunterevent, f"**Error : **`Can't complete the process`"
             )
         try:
             c_time = time.time()
@@ -205,18 +205,18 @@ async def ff_mpeg_trim_cmd(event):
                 allow_cache=False,
                 reply_to=reply_to_id,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                    progress(d, t, mafiaevent, c_time, "trying to upload")
+                    progress(d, t, hunterevent, c_time, "trying to upload")
                 ),
             )
             os.remove(o)
         except Exception as e:
-            return await edit_delete(mafiaevent, f"**Error : **`{e}`")
+            return await edit_delete(hunterevent, f"**Error : **`{e}`")
     else:
-        await edit_delete(mafiaevent, "RTFM")
+        await edit_delete(hunterevent, "RTFM")
         return
     end = datetime.now()
     ms = (end - start).seconds
-    await edit_delete(mafiaevent, f"`Completed Process in {ms} seconds`", 3)
+    await edit_delete(hunterevent, f"`Completed Process in {ms} seconds`", 3)
 
 
 @bot.on(admin_cmd(pattern="ffmpegclear$"))
