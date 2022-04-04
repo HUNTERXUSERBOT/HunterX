@@ -3,7 +3,7 @@ from telethon.tl.types import ChatBannedRights
 
 from userbot import CMD_HELP
 from userbot.events import errors_handler, register
-from mafiabot.utils import admin_cmd, sudo_cmd, edit_or_reply
+from hunterx.utils import admin_cmd, sudo_cmd, edit_or_reply
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
 from . import *
@@ -13,7 +13,7 @@ DEFAULTUSER = (
     str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
 )
 
-h1m4n5hu0p = bot.uid
+hunterxuserbot = bot.uid
 
 @bot.on(admin_cmd(pattern=r"lock ?(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern=r"lock ?(.*)", allow_sudo=True))
