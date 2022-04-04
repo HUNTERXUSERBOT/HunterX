@@ -5,7 +5,7 @@
 # NOW IN MAFIABOT
 import math
 
-from mafiabot.utils import admin_cmd, sudo_cmd, edit_or_reply
+from hunterx.utils import admin_cmd, sudo_cmd, edit_or_reply
 
 from userbot import CmdHelp
 from userbot import bot as mafiabot
