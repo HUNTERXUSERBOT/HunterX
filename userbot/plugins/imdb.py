@@ -1,6 +1,4 @@
-# For UniBorg
-# Copyright (c) JeepBot | 2019
-# (c) JeepBot is not occur to all modules in here
+
 """
 Imdb Module
 .imdb
@@ -10,7 +8,7 @@ import re
 
 import bs4
 import requests
-from mafiabot.utils import admin_cmd, sudo_cmd, edit_or_reply
+from hunterx.utils import admin_cmd, sudo_cmd, edit_or_reply
 from userbot.cmdhelp import CmdHelp
 
 langi = "en"
