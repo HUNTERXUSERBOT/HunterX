@@ -1,8 +1,7 @@
-# PLUGIN MADE BY @H1M4N5HU0P FOR MAFIABOT
-# KEEP CREDITS ELSE GAY
+
 
 import random, re
-from mafiabot.utils import admin_cmd
+from hunterx.utils import admin_cmd
 import asyncio
 from telethon import events
 
