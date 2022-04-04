@@ -6,7 +6,7 @@ from typing import Optional, Tuple
 from PIL import Image, ImageDraw, ImageFont
 import PIL.ImageOps
 
-from mafiabot.utils import admin_cmd, sudo_cmd
+from hunterx.utils import admin_cmd, sudo_cmd
 from userbot import CmdHelp, CMD_HELP, LOGS, bot as mafiabot
 from userbot.helpers.functions import (
     convert_toimage,
@@ -46,174 +46,174 @@ async def crop(imagefile, endname, x):
 
 @mafiabot.on(admin_cmd(pattern="invert$", outgoing=True))
 @mafiabot.on(sudo_cmd(pattern="invert$", allow_sudo=True))
-async def memes(mafia):
-    if mafia.fwd_from:
+async def memes(hunter):
+    if hunter.fwd_from:
         return
-    reply = await mafia.get_reply_message()
+    reply = await hunter.get_reply_message()
     if not (reply and (reply.media)):
-        await edit_or_reply(mafia, "`Reply to supported Media...`")
+        await edit_or_reply(hunter, "`Reply to supported Media...`")
         return
-    mafiaid = mafia.reply_to_msg_id
+    hunterid = hunter.reply_to_msg_id
     if not os.path.isdir("./temp/"):
         os.mkdir("./temp/")
-    mafia = await edit_or_reply(mafia, "`Fetching media data`")
+    hunter = await edit_or_reply(hunter, "`Fetching media data`")
     from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
     await asyncio.sleep(2)
-    mafiasticker = await reply.download_media(file="./temp/")
-    if not mafiasticker.endswith((".mp4", ".webp", ".tgs", ".png", ".jpg", ".mov")):
-        os.remove(mafiasticker)
-        await edit_or_reply(mafia, "```Supported Media not found...```")
+    huntersticker = await reply.download_media(file="./temp/")
+    if not huntersticker.endswith((".mp4", ".webp", ".tgs", ".png", ".jpg", ".mov")):
+        os.remove(huntersticker)
+        await edit_or_reply(hunter, "```Supported Media not found...```")
         return
     import base64
 
     kraken = None
-    if mafiasticker.endswith(".tgs"):
-        await mafia.edit(
+    if huntersticker.endswith(".tgs"):
+        await hunter.edit(
             "Analyzing this media 🧐  inverting colors of this animated sticker!"
         )
-        mafiafile = os.path.join("./temp/", "meme.png")
-        mafiacmd = (
+        hunterfile = os.path.join("./temp/", "meme.png")
+        huntercmd = (
             f"lottie_convert.py --frame 0 -if lottie -of png {mafiasticker} {mafiafile}"
         )
         stdout, stderr = (await runcmd(mafiacmd))[:2]
-        if not os.path.lexists(mafiafile):
-            await mafia.edit("`Template not found...`")
+        if not os.path.lexists(hunterfile):
+            await hunter.edit("`Template not found...`")
             LOGS.info(stdout + stderr)
-        meme_file = mafiafile
+        meme_file = hunterfile
         kraken = True
-    elif mafiasticker.endswith(".webp"):
-        await mafia.edit(
+    elif huntersticker.endswith(".webp"):
+        await hunter.edit(
             "`Analyzing this media 🧐 inverting colors...`"
         )
-        mafiafile = os.path.join("./temp/", "memes.jpg")
-        os.rename(mafiasticker, mafiafile)
-        if not os.path.lexists(mafiafile):
-            await mafia.edit("`Template not found... `")
+        hunterfile = os.path.join("./temp/", "memes.jpg")
+        os.rename(mafiasticker, hunterfile)
+        if not os.path.lexists(hunterfile):
+            await hunter.edit("`Template not found... `")
             return
-        meme_file = mafiafile
+        meme_file = hunterfile
         kraken = True
-    elif mafiasticker.endswith((".mp4", ".mov")):
-        await mafia.edit(
+    elif huntersticker.endswith((".mp4", ".mov")):
+        await hunter.edit(
             "Analyzing this media 🧐 inverting colors of this video!"
         )
-        mafiafile = os.path.join("./temp/", "memes.jpg")
-        await take_screen_shot(mafiasticker, 0, mafiafile)
+        hunterfile = os.path.join("./temp/", "memes.jpg")
+        await take_screen_shot(huntersticker, 0, mafiafile)
         if not os.path.lexists(mafiafile):
-            await mafia.edit("```Template not found...```")
+            await hunter.edit("```Template not found...```")
             return
-        meme_file = mafiafile
+        meme_file = hunterfile
         kraken = True
     else:
-        await mafia.edit(
+        await hunter.edit(
             "Analyzing this media 🧐 inverting colors of this image!"
         )
-        meme_file = mafiasticker
+        meme_file = huntersticker
     try:
         san = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
         san = Get(san)
-        await mafia.client(san)
+        await hunter.client(san)
     except BaseException:
         pass
     meme_file = convert_toimage(meme_file)
     outputfile = "invert.webp" if kraken else "invert.jpg"
     await invert_colors(meme_file, outputfile)
-    await mafia.client.send_file(
+    await hunter.client.send_file(
         mafia.chat_id, outputfile, force_document=False, reply_to=mafiaid
     )
-    await mafia.delete()
+    await hunter.delete()
     os.remove(outputfile)
-    for files in (mafiasticker, meme_file):
+    for files in (huntersticker, meme_file):
         if files and os.path.exists(files):
             os.remove(files)
 
 
-@mafiabot.on(admin_cmd(outgoing=True, pattern="solarize$"))
-@mafiabot.on(sudo_cmd(pattern="solarize$", allow_sudo=True))
-async def memes(mafia):
-    if mafia.fwd_from:
+@hunterx.on(admin_cmd(outgoing=True, pattern="solarize$"))
+@hunterx.on(sudo_cmd(pattern="solarize$", allow_sudo=True))
+async def memes(hunter):
+    if hunter.fwd_from:
         return
-    reply = await mafia.get_reply_message()
+    reply = await hunter.get_reply_message()
     if not (reply and (reply.media)):
-        await edit_or_reply(mafia, "`Reply to supported Media...`")
+        await edit_or_reply(hunter, "`Reply to supported Media...`")
         return
-    mafiaid = mafia.reply_to_msg_id
+    hunterid = hunter.reply_to_msg_id
     if not os.path.isdir("./temp/"):
         os.mkdir("./temp/")
-    mafia = await edit_or_reply(mafia, "`Fetching media data`")
+    hunter = await edit_or_reply(hunter, "`Fetching media data`")
     from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
     await asyncio.sleep(2)
-    mafiasticker = await reply.download_media(file="./temp/")
-    if not mafiasticker.endswith((".mp4", ".webp", ".tgs", ".png", ".jpg", ".mov")):
-        os.remove(mafiasticker)
-        await edit_or_reply(mafia, "```Supported Media not found...```")
+    huntersticker = await reply.download_media(file="./temp/")
+    if not huntersticker.endswith((".mp4", ".webp", ".tgs", ".png", ".jpg", ".mov")):
+        os.remove(huntersticker)
+        await edit_or_reply(hunter, "```Supported Media not found...```")
         return
     import base64
 
     kraken = None
-    if mafiasticker.endswith(".tgs"):
-        await mafia.edit(
+    if huntersticker.endswith(".tgs"):
+        await hunter.edit(
             "Analyzing this media 🧐 solarizeing this animated sticker!"
         )
-        mafiafile = os.path.join("./temp/", "meme.png")
-        mafiacmd = (
+        hunterfile = os.path.join("./temp/", "meme.png")
+        huntercmd = (
             f"lottie_convert.py --frame 0 -if lottie -of png {mafiasticker} {mafiafile}"
         )
         stdout, stderr = (await runcmd(mafiacmd))[:2]
         if not os.path.lexists(mafiafile):
-            await mafia.edit("`Template not found...`")
+            await hunter.edit("`Template not found...`")
             LOGS.info(stdout + stderr)
-        meme_file = mafiafile
+        meme_file = hunterfile
         kraken = True
-    elif mafiasticker.endswith(".webp"):
-        await mafia.edit(
+    elif huntersticker.endswith(".webp"):
+        await hunter.edit(
             "Analyzing this media 🧐 solarizeing this sticker!"
         )
-        mafiafile = os.path.join("./temp/", "memes.jpg")
-        os.rename(mafiasticker, mafiafile)
-        if not os.path.lexists(mafiafile):
-            await mafia.edit("`Template not found... `")
+        hunterfile = os.path.join("./temp/", "memes.jpg")
+        os.rename(huntersticker, hunterfile)
+        if not os.path.lexists(hunterfile):
+            await hunter.edit("`Template not found... `")
             return
-        meme_file = mafiafile
+        meme_file = hunterfile
         kraken = True
-    elif mafiasticker.endswith((".mp4", ".mov")):
-        await mafia.edit(
+    elif huntersticker.endswith((".mp4", ".mov")):
+        await hunter.edit(
             "Analyzing this media 🧐 solarizeing this video!"
         )
-        mafiafile = os.path.join("./temp/", "memes.jpg")
-        await take_screen_shot(mafiasticker, 0, mafiafile)
-        if not os.path.lexists(mafiafile):
-            await mafia.edit("```Template not found...```")
+        hunterfile = os.path.join("./temp/", "memes.jpg")
+        await take_screen_shot(huntersticker, 0, hunterfile)
+        if not os.path.lexists(hunterfile):
+            await hunter.edit("```Template not found...```")
             return
-        meme_file = mafiafile
+        meme_file = hunterfile
         kraken = True
     else:
-        await mafia.edit(
+        await hunter.edit(
             "Analyzing this media 🧐 solarizeing this image!"
         )
-        meme_file = mafiasticker
+        meme_file = huntersticker
     try:
         san = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
         san = Get(san)
-        await mafia.client(san)
+        await hunter.client(san)
     except BaseException:
         pass
     meme_file = convert_toimage(meme_file)
     outputfile = "solarize.webp" if kraken else "solarize.jpg"
     await solarize(meme_file, outputfile)
-    await mafia.client.send_file(
+    await hunter.client.send_file(
         mafia.chat_id, outputfile, force_document=False, reply_to=mafiaid
     )
-    await mafia.delete()
+    await hunter.delete()
     os.remove(outputfile)
-    for files in (mafiasticker, meme_file):
+    for files in (huntersticker, meme_file):
         if files and os.path.exists(files):
             os.remove(files)
 
 
-@mafiabot.on(admin_cmd(outgoing=True, pattern="mirror$"))
-@mafiabot.on(sudo_cmd(pattern="mirror$", allow_sudo=True))
+@hunterx.on(admin_cmd(outgoing=True, pattern="mirror$"))
+@hunterx.on(sudo_cmd(pattern="mirror$", allow_sudo=True))
 async def memes(mafia):
     if mafia.fwd_from:
         return
